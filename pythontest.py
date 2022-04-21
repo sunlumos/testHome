@@ -275,6 +275,3 @@ pattern = soup.find_all('span','short')
 for item in pattern:
     print(item.string)
 # print(soup)
-
-# 测试
-# 测试
