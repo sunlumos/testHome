@@ -377,7 +377,27 @@
 # foo('Hello!','A','B','C')
 
 # return返回多个值，用元组的形式返回
-def foo():
-  return 1,2,3
+# def foo():
+#   return 1,2,3
 
-print(foo())  #打印(1, 2, 3)
+# print(foo())  #打印(1, 2, 3)
+
+# 输入后直接就是数字而非字符串
+# eval() 函数用来执行一个字符串表达式，并返回表达式的值。
+# x,y = eval(input('input:'))
+# print(x,y)
+
+#将列表中的字符串转化为数字 列表解析的方式
+# lst = ['789','3.26','54.6']
+# print([eval(item) for item in lst])
+
+from functools import reduce
+
+lis = [84,6,5]
+# map()函数，将列表中的所有值执行*2的操作,不会改变原来的列表
+print(list(map(lambda x:x*2,lis)))  #[168, 12, 10]
+print(lis)  #[84, 6, 5]
+# filter函数，筛选所有%2=0的元素
+print(list(filter(lambda x:x%2 == 0,lis)))
+# reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
+print(reduce(lambda x,y:x+y,lis))
