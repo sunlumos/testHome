@@ -308,7 +308,17 @@
 #         count+=1
 # print('一共有{}个符号,ye{}'.format(count,count))
 
-string = 'abcd'
-# 翻转字符串  
+# string = 'abcd'
+# # 翻转字符串  
 # print(''.join(reversed(string)))
-print(string[::-1])
+# print(string[::-1])
+
+#常见的字符串的方法
+songs = "Blowing in the Wind"
+print(songs.find("the"))  # 11  查找子串的位置
+print(songs.find('the',5,12))   #-1  从9到12位置查询，未查询到返回-1 要包含整个的the才会返回对应的起始索引
+print(songs.lower())   # blowing in the wind 全部小写，但不会改变原来的字符串
+print(songs.split(' ')) # ['Blowing', 'in', 'the', 'Wind'] 根据split中的符号来对字符串进行分割
+print(songs.replace("the","that")) #Blowing in that Wind  将the替换成that
+aList = ["hello",'world']
+print('！'.join(aList))  # hello！world 用 ！连接列表
