@@ -354,18 +354,30 @@
 # print(list)  # [0, 1, 4, 9, 16, 25, 36, 49]
 
 # 咖啡列表：['35Latte','_Americano64','/34Capuccino','Mocha35'],去乱码，形成列表
-coffeeList = ['35Latte','_Americano64','/34Capuccino','Mocha35']
-def clean(lst):
-    cleanList = []
-    # i在咖啡列表循环，然后j需要在列表中的每一项中循环，去查看是否为字母
-    for i in lst:
-        for j in i:
-            if j.isalpha() != True:
-                i = i.replace(j,'')
-    # 每一个列表项循环清除完后，放入清理好的列表中，由于是单个的，使用append()方法
-        cleanList.append(i)
-    return cleanList
+# coffeeList = ['35Latte','_Americano64','/34Capuccino','Mocha35']
+# def clean(lst):
+#     cleanList = []
+#     # i在咖啡列表循环，然后j需要在列表中的每一项中循环，去查看是否为字母
+#     for i in lst:
+#         for j in i:
+#             if j.isalpha() != True:
+#                 i = i.replace(j,'')
+#     # 每一个列表项循环清除完后，放入清理好的列表中，由于是单个的，使用append()方法
+#         cleanList.append(i)
+#     return cleanList
 
-cleanedList = clean(coffeeList)
-for k,v in enumerate(cleanedList):
-    print(k+1,v)
+# cleanedList = clean(coffeeList)
+# for k,v in enumerate(cleanedList):
+#     print(k+1,v)
+
+# def foo(a,*arg):
+#     print(a)
+#     print(arg)
+# # 带*号用于收集后面所有的参数，形成一个元组
+# foo('Hello!','A','B','C')
+
+# return返回多个值，用元组的形式返回
+def foo():
+  return 1,2,3
+
+print(foo())  #打印(1, 2, 3)
