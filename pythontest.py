@@ -391,13 +391,13 @@
 # lst = ['789','3.26','54.6']
 # print([eval(item) for item in lst])
 
-from functools import reduce
+# from functools import reduce
 
-lis = [84,6,5]
-# map()函数，将列表中的所有值执行*2的操作,不会改变原来的列表
-print(list(map(lambda x:x*2,lis)))  #[168, 12, 10]
-print(lis)  #[84, 6, 5]
-# filter函数，筛选所有%2=0的元素
-print(list(filter(lambda x:x%2 == 0,lis)))
-# reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
-print(reduce(lambda x,y:x+y,lis))
+# lis = [84,6,5]
+# # map()函数，将列表中的所有值执行*2的操作,不会改变原来的列表
+# print(list(map(lambda x:x*2,lis)))  #[168, 12, 10]
+# print(lis)  #[84, 6, 5]
+# # filter函数，筛选所有%2=0的元素
+# print(list(filter(lambda x:x%2 == 0,lis)))
+# # reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
+# print(reduce(lambda x,y:x+y,lis))
