@@ -313,12 +313,23 @@
 # print(''.join(reversed(string)))
 # print(string[::-1])
 
-#常见的字符串的方法
-songs = "Blowing in the Wind"
-print(songs.find("the"))  # 11  查找子串的位置
-print(songs.find('the',5,12))   #-1  从9到12位置查询，未查询到返回-1 要包含整个的the才会返回对应的起始索引
-print(songs.lower())   # blowing in the wind 全部小写，但不会改变原来的字符串
-print(songs.split(' ')) # ['Blowing', 'in', 'the', 'Wind'] 根据split中的符号来对字符串进行分割
-print(songs.replace("the","that")) #Blowing in that Wind  将the替换成that
-aList = ["hello",'world']
-print('！'.join(aList))  # hello！world 用 ！连接列表
+# #常见的字符串的方法
+# songs = "Blowing in the Wind"
+# print(songs.find("the"))  # 11  查找子串的位置
+# print(songs.find('the',5,12))   #-1  从9到12位置查询，未查询到返回-1 要包含整个的the才会返回对应的起始索引
+# print(songs.lower())   # blowing in the wind 全部小写，但不会改变原来的字符串
+# print(songs.split(' ')) # ['Blowing', 'in', 'the', 'Wind'] 根据split中的符号来对字符串进行分割
+# print(songs.replace("the","that")) #Blowing in that Wind  将the替换成that
+# aList = ["hello",'world']
+# print('！'.join(aList))  # hello！world 用 ！连接列表
+
+# 去除最高分和最低分，加入观众得分，求平均分
+jScore = [7,7,8,8,8,8,9,9,9,8,10,9]
+aScore = 9
+jScore.sort()  #sort()排序方法，从小到大
+jScore.pop()  #pop方法，弹出最后一位
+jScore.pop(0) #弹出第一位
+jScore.append(aScore) #append() 方法用于在列表末尾添加新的对象。
+aveScore = sum(jScore) / len(jScore)
+print(aveScore)
+
