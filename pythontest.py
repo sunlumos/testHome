@@ -333,14 +333,14 @@
 # aveScore = sum(jScore) / len(jScore)
 # print(aveScore)
 
-alist = ['星期一','星期二','星期三','星期四','星期五']
-blist = ['星期六','星期日']
-# extend() 函数用于在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
-# 不应该使用alist.append(blist)，结果会为['星期一', '星期二', '星期三', '星期四', '星期五', ['星期六', '星期日']]
-alist.extend(blist)
-# enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
-for i,j in enumerate(alist):
-    print(i+1,j)
+# alist = ['星期一','星期二','星期三','星期四','星期五']
+# blist = ['星期六','星期日']
+# # extend() 函数用于在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
+# # 不应该使用alist.append(blist)，结果会为['星期一', '星期二', '星期三', '星期四', '星期五', ['星期六', '星期日']]
+# alist.extend(blist)
+# # enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+# for i,j in enumerate(alist):
+#     print(i+1,j)
 # 1 星期一
 # 2 星期二
 # 3 星期三
@@ -349,3 +349,5 @@ for i,j in enumerate(alist):
 # 6 星期六
 # 7 星期日
 
+list = [x**2 for x in range(0,10) if x<8]
+print(list)
