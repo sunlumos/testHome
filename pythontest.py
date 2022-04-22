@@ -349,5 +349,23 @@
 # 6 星期六
 # 7 星期日
 
-list = [x**2 for x in range(0,10) if x<8]
-print(list)
+# 列表解析  可以添加多个条件，动态地生成列表
+# list = [x**2 for x in range(0,10) if x<8]
+# print(list)  # [0, 1, 4, 9, 16, 25, 36, 49]
+
+# 咖啡列表：['35Latte','_Americano64','/34Capuccino','Mocha35'],去乱码，形成列表
+coffeeList = ['35Latte','_Americano64','/34Capuccino','Mocha35']
+def clean(lst):
+    cleanList = []
+    # i在咖啡列表循环，然后j需要在列表中的每一项中循环，去查看是否为字母
+    for i in lst:
+        for j in i:
+            if j.isalpha() != True:
+                i = i.replace(j,'')
+    # 每一个列表项循环清除完后，放入清理好的列表中，由于是单个的，使用append()方法
+        cleanList.append(i)
+    return cleanList
+
+cleanedList = clean(coffeeList)
+for k,v in enumerate(cleanedList):
+    print(k+1,v)
