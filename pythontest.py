@@ -264,14 +264,31 @@
 # 寻找所有b标签的内容 soup.find_all('b')
 
 
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
 
-url = 'https://book.douban.com/subject/1084336/comments/'
-headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'}
-r = requests.get(url,headers=headers)
-soup = BeautifulSoup(r.text,"lxml")
-pattern = soup.find_all('span','short')
-for item in pattern:
-    print(item.string)
-# print(soup)
+# url = 'https://book.douban.com/subject/1084336/comments/'
+# headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'}
+# r = requests.get(url,headers=headers)
+# soup = BeautifulSoup(r.text,"lxml")
+# pattern = soup.find_all('span','short')
+# for item in pattern:
+#     print(item.string)
+# # print(soup)
+
+# week = ['one','two','three','four','five','six','seven']
+# 根据下标进行输出，-代表从后往前，1:4代表从下标1到下标3（4-1），：6就是0:6，：：-1表示逆序输出
+# print(week[1],week[-2],week[1:4],week[:6],week[::-1],sep='\n')
+# 输出结果
+# two
+# six
+# ['two', 'three', 'four']
+# ['one', 'two', 'three', 'four', 'five', 'six']
+# ['seven', 'six', 'five', 'four', 'three', 'two', 'one']
+
+# 字符串重复 *
+print('apple'*3) # appleappleapple
+# 字符串连接 +
+print('pine'+'apple') #pineapple
+# in 用于判断对象是否包含在后面的数组里
+print('BA' in ('BA','ba'))
