@@ -264,17 +264,140 @@
 # 寻找所有b标签的内容 soup.find_all('b')
 
 
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
 
-url = 'https://book.douban.com/subject/1084336/comments/'
-headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'}
-r = requests.get(url,headers=headers)
-soup = BeautifulSoup(r.text,"lxml")
-pattern = soup.find_all('span','short')
-for item in pattern:
-    print(item.string)
-# print(soup)
+# url = 'https://book.douban.com/subject/1084336/comments/'
+# headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36'}
+# r = requests.get(url,headers=headers)
+# soup = BeautifulSoup(r.text,"lxml")
+# pattern = soup.find_all('span','short')
+# for item in pattern:
+#     print(item.string)
+# # print(soup)
 
-# 测试
-# 测试
+# week = ['one','two','three','four','five','six','seven']
+# 根据下标进行输出，-代表从后往前，1:4代表从下标1到下标3（4-1），：6就是0:6，：：-1表示逆序输出
+# print(week[1],week[-2],week[1:4],week[:6],week[::-1],sep='\n')
+# 输出结果
+# two
+# six
+# ['two', 'three', 'four']
+# ['one', 'two', 'three', 'four', 'five', 'six']
+# ['seven', 'six', 'five', 'four', 'three', 'two', 'one']
+
+# # 字符串重复 *
+# print('apple'*3) # appleappleapple
+# # 字符串连接 +
+# print('pine'+'apple') #pineapple
+# # in 用于判断对象是否包含在后面的数组里
+# print('BA' in ('BA','ba'))
+
+# s1 = "I'm a student"
+# s2 = '''hello
+# world'''
+# print(s2)
+
+# 将world替换为Python，并且统计标点个数
+# aStr = 'Hello,world!'
+# bStr = aStr[:6] + 'Python!'
+# print(bStr)
+# count = 0
+# for i in bStr:
+#     if i in ',.!?':
+#         count+=1
+# print('一共有{}个符号,ye{}'.format(count,count))
+
+# string = 'abcd'
+# # 翻转字符串  
+# print(''.join(reversed(string)))
+# print(string[::-1])
+
+# #常见的字符串的方法
+# songs = "Blowing in the Wind"
+# print(songs.find("the"))  # 11  查找子串的位置
+# print(songs.find('the',5,12))   #-1  从9到12位置查询，未查询到返回-1 要包含整个的the才会返回对应的起始索引
+# print(songs.lower())   # blowing in the wind 全部小写，但不会改变原来的字符串
+# print(songs.split(' ')) # ['Blowing', 'in', 'the', 'Wind'] 根据split中的符号来对字符串进行分割
+# print(songs.replace("the","that")) #Blowing in that Wind  将the替换成that
+# aList = ["hello",'world']
+# print('！'.join(aList))  # hello！world 用 ！连接列表
+
+# # 去除最高分和最低分，加入观众得分，求平均分
+# jScore = [7,7,8,8,8,8,9,9,9,8,10,9]
+# aScore = 9
+# jScore.sort()  #sort()排序方法，从小到大
+# jScore.pop()  #pop方法，弹出最后一位
+# jScore.pop(0) #弹出第一位
+# jScore.append(aScore) #append() 方法用于在列表末尾添加新的对象。
+# aveScore = sum(jScore) / len(jScore)
+# print(aveScore)
+
+# alist = ['星期一','星期二','星期三','星期四','星期五']
+# blist = ['星期六','星期日']
+# # extend() 函数用于在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
+# # 不应该使用alist.append(blist)，结果会为['星期一', '星期二', '星期三', '星期四', '星期五', ['星期六', '星期日']]
+# alist.extend(blist)
+# # enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+# for i,j in enumerate(alist):
+#     print(i+1,j)
+# 1 星期一
+# 2 星期二
+# 3 星期三
+# 4 星期四
+# 5 星期五
+# 6 星期六
+# 7 星期日
+
+# 列表解析  可以添加多个条件，动态地生成列表
+# list = [x**2 for x in range(0,10) if x<8]
+# print(list)  # [0, 1, 4, 9, 16, 25, 36, 49]
+
+# 咖啡列表：['35Latte','_Americano64','/34Capuccino','Mocha35'],去乱码，形成列表
+# coffeeList = ['35Latte','_Americano64','/34Capuccino','Mocha35']
+# def clean(lst):
+#     cleanList = []
+#     # i在咖啡列表循环，然后j需要在列表中的每一项中循环，去查看是否为字母
+#     for i in lst:
+#         for j in i:
+#             if j.isalpha() != True:
+#                 i = i.replace(j,'')
+#     # 每一个列表项循环清除完后，放入清理好的列表中，由于是单个的，使用append()方法
+#         cleanList.append(i)
+#     return cleanList
+
+# cleanedList = clean(coffeeList)
+# for k,v in enumerate(cleanedList):
+#     print(k+1,v)
+
+# def foo(a,*arg):
+#     print(a)
+#     print(arg)
+# # 带*号用于收集后面所有的参数，形成一个元组
+# foo('Hello!','A','B','C')
+
+# return返回多个值，用元组的形式返回
+# def foo():
+#   return 1,2,3
+
+# print(foo())  #打印(1, 2, 3)
+
+# 输入后直接就是数字而非字符串
+# eval() 函数用来执行一个字符串表达式，并返回表达式的值。
+# x,y = eval(input('input:'))
+# print(x,y)
+
+#将列表中的字符串转化为数字 列表解析的方式
+# lst = ['789','3.26','54.6']
+# print([eval(item) for item in lst])
+
+from functools import reduce
+
+lis = [84,6,5]
+# map()函数，将列表中的所有值执行*2的操作,不会改变原来的列表
+print(list(map(lambda x:x*2,lis)))  #[168, 12, 10]
+print(lis)  #[84, 6, 5]
+# filter函数，筛选所有%2=0的元素
+print(list(filter(lambda x:x%2 == 0,lis)))
+# reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
+print(reduce(lambda x,y:x+y,lis))
