@@ -323,13 +323,29 @@
 # aList = ["hello",'world']
 # print('！'.join(aList))  # hello！world 用 ！连接列表
 
-# 去除最高分和最低分，加入观众得分，求平均分
-jScore = [7,7,8,8,8,8,9,9,9,8,10,9]
-aScore = 9
-jScore.sort()  #sort()排序方法，从小到大
-jScore.pop()  #pop方法，弹出最后一位
-jScore.pop(0) #弹出第一位
-jScore.append(aScore) #append() 方法用于在列表末尾添加新的对象。
-aveScore = sum(jScore) / len(jScore)
-print(aveScore)
+# # 去除最高分和最低分，加入观众得分，求平均分
+# jScore = [7,7,8,8,8,8,9,9,9,8,10,9]
+# aScore = 9
+# jScore.sort()  #sort()排序方法，从小到大
+# jScore.pop()  #pop方法，弹出最后一位
+# jScore.pop(0) #弹出第一位
+# jScore.append(aScore) #append() 方法用于在列表末尾添加新的对象。
+# aveScore = sum(jScore) / len(jScore)
+# print(aveScore)
+
+alist = ['星期一','星期二','星期三','星期四','星期五']
+blist = ['星期六','星期日']
+# extend() 函数用于在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
+# 不应该使用alist.append(blist)，结果会为['星期一', '星期二', '星期三', '星期四', '星期五', ['星期六', '星期日']]
+alist.extend(blist)
+# enumerate() 函数用于将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。
+for i,j in enumerate(alist):
+    print(i+1,j)
+# 1 星期一
+# 2 星期二
+# 3 星期三
+# 4 星期四
+# 5 星期五
+# 6 星期六
+# 7 星期日
 
