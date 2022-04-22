@@ -299,11 +299,16 @@
 # print(s2)
 
 # 将world替换为Python，并且统计标点个数
-aStr = 'Hello,world!'
-bStr = aStr[:6] + 'Python!'
-print(bStr)
-count = 0
-for i in bStr:
-    if i in ',.!?':
-        count+=1
-print(count)
+# aStr = 'Hello,world!'
+# bStr = aStr[:6] + 'Python!'
+# print(bStr)
+# count = 0
+# for i in bStr:
+#     if i in ',.!?':
+#         count+=1
+# print('一共有{}个符号,ye{}'.format(count,count))
+
+string = 'abcd'
+# 翻转字符串  
+# print(''.join(reversed(string)))
+print(string[::-1])
