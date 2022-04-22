@@ -286,9 +286,24 @@
 # ['one', 'two', 'three', 'four', 'five', 'six']
 # ['seven', 'six', 'five', 'four', 'three', 'two', 'one']
 
-# 字符串重复 *
-print('apple'*3) # appleappleapple
-# 字符串连接 +
-print('pine'+'apple') #pineapple
-# in 用于判断对象是否包含在后面的数组里
-print('BA' in ('BA','ba'))
+# # 字符串重复 *
+# print('apple'*3) # appleappleapple
+# # 字符串连接 +
+# print('pine'+'apple') #pineapple
+# # in 用于判断对象是否包含在后面的数组里
+# print('BA' in ('BA','ba'))
+
+# s1 = "I'm a student"
+# s2 = '''hello
+# world'''
+# print(s2)
+
+# 将world替换为Python，并且统计标点个数
+aStr = 'Hello,world!'
+bStr = aStr[:6] + 'Python!'
+print(bStr)
+count = 0
+for i in bStr:
+    if i in ',.!?':
+        count+=1
+print(count)
