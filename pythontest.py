@@ -401,5 +401,3 @@ print(lis)  #[84, 6, 5]
 print(list(filter(lambda x:x%2 == 0,lis)))
 # reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
 print(reduce(lambda x,y:x+y,lis))
-
-# ceshi
