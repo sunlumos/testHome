@@ -521,3 +521,20 @@
 # aInfo.update(bInfo)
 # print(aInfo)  #{'Wangdachui': 4000, 'Niuyun': 6000, 'Tianqi': 8000, 'Wangzi': 7000}
 
+# 集合里遇到重复的，进行消除
+# names = ['a','b','c','a']
+# nameSet = set(names)
+# print(nameSet)
+# 利用set函数可以创建集合
+# aSet = set('hello')
+# print(aSet)
+# bSet = frozenset('hello')
+# print(bSet)
+
+# 集合关系运算
+aSet = set('sunrise')
+bSet = set('sunset')
+# &运算，寻找两个集合都包含的
+print(aSet&bSet)
+# 或运算
+print(aSet|bSet)
