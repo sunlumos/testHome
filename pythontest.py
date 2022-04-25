@@ -437,7 +437,11 @@
 # 方法2
 s = input('请输入一个数字：')
 i = int(s)
+# 首先使用filter函数，筛选出符合条件的数字，使用lambda函数筛选，x%i == 非零数并且字符串s不在字符串x中，筛选的范围是1到100
+# 然后使用map进行遍历，将所有筛选出来的数字变成字符串，最后使用list()函数变为列表
 num = list(map(str, filter(lambda x: x % i and s not in str(x), range(1, 101))))
-for i in range(0, len(num), 10):
+# for循环 ，整个列表，每10个数为一组换行
+for i in range(0, len(num),10):
+# 在输出的数字中加入,
  print(','.join(num[i:i+10]))
 
