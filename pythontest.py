@@ -462,22 +462,62 @@
 # print(dic)
 
 # 将一个列表中的公司名和公司成交价形成字典
-pList = [('AXP','American','18.42'),('BA','Chinese','45.89'),('BBC','England','6.78')]
-aList = []
-bList = []
-for i in range(3):
-# 将plist中每一项的第一个和第三个取出，放到对应的list中去
-# 存疑，为什么直接使用aList[i] = pList[i][0]报错list assignment index out of range
-  aStr = pList[i][0]
-  bStr = pList[i][2]
-  aList.append(aStr)
-  bList.append(bStr)
-# 使用
-aDic = dict(zip(aList,bList))
-print(aDic)
+# pList = [('AXP','American','18.42'),('BA','Chinese','45.89'),('BBC','England','6.78')]
+# aList = []
+# bList = []
+# for i in range(3):
+# # 将plist中每一项的第一个和第三个取出，放到对应的list中去
+# # 存疑，为什么直接使用aList[i] = pList[i][0]报错list assignment index out of range
+#   aStr = pList[i][0]
+#   bStr = pList[i][2]
+#   aList.append(aStr)
+#   bList.append(bStr)
+# # 使用
+# aDic = dict(zip(aList,bList))
+# print(aDic)
 
-# 方法2  使用for循环直接生成字典
-bDic = {}
-for item in pList:
-    bDic[item[0]] = item[2]
-print(bDic)
+# # 方法2  使用for循环直接生成字典
+# bDic = {}
+# for item in pList:
+#     bDic[item[0]] = item[2]
+# print(bDic)
+
+# 字典的基本方法
+# aInfo = {'Wangdachui':3000,'Niuyun':5000,'Tianqi':8000}
+# # 键值查找,两种方法，推荐使用第二种
+# 第一种，当查找的对象不存在时会报错
+# print(aInfo['Wangdachui'])
+# print(aInfo['Sun'])
+# 第二种 使用get方法查找
+# print(aInfo.get('Wangdachui'))
+# print(aInfo.get('Sun'))  #返回None
+# # 键值更新
+# aInfo['Niuyun'] = 9999
+# print(aInfo)
+# # 成员添加
+# aInfo['Fuyun'] = 1000
+# print(aInfo)
+# # 成员判断
+# print('Mayun' in aInfo)
+# print('Niuyun' in aInfo)
+# # 删除
+# del aInfo['Fuyun']
+# print(aInfo)
+# # 输出所有键
+# print(aInfo.keys())
+# # 输出所有值
+# print(aInfo.values())
+# # 遍历列表，使用items()函数
+# for k,v in aInfo.items():
+#     print(k,v)
+# # Wangdachui 3000
+# # Niuyun 9999
+# # Tianqi 8000
+# 删除字典
+# aInfo.clear()
+# 需要对a字典进行更改数值与添加时，可以使用update方法
+# aInfo = {'Wangdachui':3000,'Niuyun':5000,'Tianqi':8000}
+# bInfo = {'Wangdachui':4000,'Niuyun':6000,'Wangzi':7000}
+# aInfo.update(bInfo)
+# print(aInfo)  #{'Wangdachui': 4000, 'Niuyun': 6000, 'Tianqi': 8000, 'Wangzi': 7000}
+
