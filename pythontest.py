@@ -435,13 +435,49 @@
 #                     print('\n')
 
 # 方法2
-s = input('请输入一个数字：')
-i = int(s)
-# 首先使用filter函数，筛选出符合条件的数字，使用lambda函数筛选，x%i == 非零数并且字符串s不在字符串x中，筛选的范围是1到100
-# 然后使用map进行遍历，将所有筛选出来的数字变成字符串，最后使用list()函数变为列表
-num = list(map(str, filter(lambda x: x % i and s not in str(x), range(1, 101))))
-# for循环 ，整个列表，每10个数为一组换行
-for i in range(0, len(num),10):
-# 在输出的数字中加入,
- print(','.join(num[i:i+10]))
+# s = input('请输入一个数字：')
+# i = int(s)
+# # 首先使用filter函数，筛选出符合条件的数字，使用lambda函数筛选，x%i == 非零数并且字符串s不在字符串x中，筛选的范围是1到100
+# # 然后使用map进行遍历，将所有筛选出来的数字变成字符串，最后使用list()函数变为列表
+# num = list(map(str, filter(lambda x: x % i and s not in str(x), range(1, 101))))
+# # for循环 ，整个列表，每10个数为一组换行
+# for i in range(0, len(num),10):
+# # 在输出的数字中加入,
+#  print(','.join(num[i:i+10]))
 
+# 字典  使用dict()函数来创建字典
+# d = dict([["s",2000]])
+# d2 = dict(yun=9000,liu=5000)
+# print(d,d2)
+
+# # 将所有的的值都设为一个同样的，比如三千
+# aDic = {}.fromkeys(('aaa','bbb','ccc'),3000)
+# print(aDic)
+
+# # 已有姓名和工资列表，两者对应形成字典
+# names = ['liuyun','wangdachui','tai']
+# salaries = [3000,2000,4500]
+# # 使用zip函数将列表打包，然后使用dict()
+# dic = dict(zip(names,salaries))
+# print(dic)
+
+# 将一个列表中的公司名和公司成交价形成字典
+pList = [('AXP','American','18.42'),('BA','Chinese','45.89'),('BBC','England','6.78')]
+aList = []
+bList = []
+for i in range(3):
+# 将plist中每一项的第一个和第三个取出，放到对应的list中去
+# 存疑，为什么直接使用aList[i] = pList[i][0]报错list assignment index out of range
+  aStr = pList[i][0]
+  bStr = pList[i][2]
+  aList.append(aStr)
+  bList.append(bStr)
+# 使用
+aDic = dict(zip(aList,bList))
+print(aDic)
+
+# 方法2  使用for循环直接生成字典
+bDic = {}
+for item in pList:
+    bDic[item[0]] = item[2]
+print(bDic)
