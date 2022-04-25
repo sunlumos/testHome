@@ -410,8 +410,34 @@
 # print(lst)
 
 # 动态网页内容获取，以新浪滚动新闻为例
-import requests 
-r = requests.get('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=50&page=1&r=0.18216408364146086&callback=jQuery1112010146328856125097_1650862004139&_=1650862004150')
-# 获取的信息中有很多unicode编码，使用解码将其还原成中文
-print(r.text.encode('utf-8').decode('unicode-escape'))
+# import requests 
+# r = requests.get('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=50&page=1&r=0.18216408364146086&callback=jQuery1112010146328856125097_1650862004139&_=1650862004150')
+# # 获取的信息中有很多unicode编码，使用解码将其还原成中文
+# print(r.text.encode('utf-8').decode('unicode-escape'))
+
+# 练习题1
+#  从键盘输入整数 n（1-9 之间），对于 1-100 之间的整数删除包含 n 并且能被 n 整除的
+# 数，例如如果 n 为 6，则要删掉包含 6 的如 6，16 这样的数及是 6 的倍数的如 12 和 18 这
+# 样的数，输出所有满足条件的数，要求每满 10 个数换行。
+# n = eval(input('请输入0到9的一个数字：'))
+# if n > 9:
+#     print('输入错误')
+# else:
+#   count = 0
+#   for i in range(1,101):
+#     if i % n != 0:
+#         if i % 10 != n:
+#             # 注意这里是//，整除，单/号在python中会返回浮点型字符，64/6 = 10.xxx,64//6 = 10
+#             if i//10 != n:
+#                 count += 1
+#                 print(i,end=' ')
+#                 if count % 10 == 0:
+#                     print('\n')
+
+# 方法2
+s = input('请输入一个数字：')
+i = int(s)
+num = list(map(str, filter(lambda x: x % i and s not in str(x), range(1, 101))))
+for i in range(0, len(num), 10):
+ print(','.join(num[i:i+10]))
 
