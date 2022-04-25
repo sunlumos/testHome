@@ -401,3 +401,17 @@
 # print(list(filter(lambda x:x%2 == 0,lis)))
 # # reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
 # print(reduce(lambda x,y:x+y,lis))
+
+# 删除偶数，需要创建浅拷贝[:],而字符串是不会修改原始迭代器的，因此可以不用创建浅拷贝
+# lst = [1,2,4,3,5]
+# for i in lst[:]:
+#     if i %2 == 0:
+#         lst.remove(i)
+# print(lst)
+
+# 动态网页内容获取，以新浪滚动新闻为例
+import requests 
+r = requests.get('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=50&page=1&r=0.18216408364146086&callback=jQuery1112010146328856125097_1650862004139&_=1650862004150')
+# 获取的信息中有很多unicode编码，使用解码将其还原成中文
+print(r.text.encode('utf-8').decode('unicode-escape'))
+
