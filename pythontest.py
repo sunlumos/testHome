@@ -567,7 +567,7 @@
 # dji_list = retrieve_dji_list()
 # djidf = pd.DataFrame(dji_list)
 # print(djidf)
-
+# 
 import matplotlib.pyplot as plt
 plt.plot([3,4,5,9,8,6,7])
 plt.show()
