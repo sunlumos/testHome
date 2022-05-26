@@ -391,13 +391,183 @@
 # lst = ['789','3.26','54.6']
 # print([eval(item) for item in lst])
 
-from functools import reduce
+# from functools import reduce
 
-lis = [84,6,5]
-# map()函数，将列表中的所有值执行*2的操作,不会改变原来的列表
-print(list(map(lambda x:x*2,lis)))  #[168, 12, 10]
-print(lis)  #[84, 6, 5]
-# filter函数，筛选所有%2=0的元素
-print(list(filter(lambda x:x%2 == 0,lis)))
-# reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
-print(reduce(lambda x,y:x+y,lis))
+# lis = [84,6,5]
+# # map()函数，将列表中的所有值执行*2的操作,不会改变原来的列表
+# print(list(map(lambda x:x*2,lis)))  #[168, 12, 10]
+# print(lis)  #[84, 6, 5]
+# # filter函数，筛选所有%2=0的元素
+# print(list(filter(lambda x:x%2 == 0,lis)))
+# # reduce函数，用于递归计算，先将84+6 = 90，再90+5=95
+# print(reduce(lambda x,y:x+y,lis))
+
+# 删除偶数，需要创建浅拷贝[:],而字符串是不会修改原始迭代器的，因此可以不用创建浅拷贝
+# lst = [1,2,4,3,5]
+# for i in lst[:]:
+#     if i %2 == 0:
+#         lst.remove(i)
+# print(lst)
+
+# 动态网页内容获取，以新浪滚动新闻为例
+# import requests 
+# r = requests.get('https://feed.mix.sina.com.cn/api/roll/get?pageid=153&lid=2509&k=&num=50&page=1&r=0.18216408364146086&callback=jQuery1112010146328856125097_1650862004139&_=1650862004150')
+# # 获取的信息中有很多unicode编码，使用解码将其还原成中文
+# print(r.text.encode('utf-8').decode('unicode-escape'))
+
+# 练习题1
+#  从键盘输入整数 n（1-9 之间），对于 1-100 之间的整数删除包含 n 并且能被 n 整除的
+# 数，例如如果 n 为 6，则要删掉包含 6 的如 6，16 这样的数及是 6 的倍数的如 12 和 18 这
+# 样的数，输出所有满足条件的数，要求每满 10 个数换行。
+# n = eval(input('请输入0到9的一个数字：'))
+# if n > 9:
+#     print('输入错误')
+# else:
+#   count = 0
+#   for i in range(1,101):
+#     if i % n != 0:
+#         if i % 10 != n:
+#             # 注意这里是//，整除，单/号在python中会返回浮点型字符，64/6 = 10.xxx,64//6 = 10
+#             if i//10 != n:
+#                 count += 1
+#                 print(i,end=' ')
+#                 if count % 10 == 0:
+#                     print('\n')
+
+# 方法2
+# s = input('请输入一个数字：')
+# i = int(s)
+# # 首先使用filter函数，筛选出符合条件的数字，使用lambda函数筛选，x%i == 非零数并且字符串s不在字符串x中，筛选的范围是1到100
+# # 然后使用map进行遍历，将所有筛选出来的数字变成字符串，最后使用list()函数变为列表
+# num = list(map(str, filter(lambda x: x % i and s not in str(x), range(1, 101))))
+# # for循环 ，整个列表，每10个数为一组换行
+# for i in range(0, len(num),10):
+# # 在输出的数字中加入,
+#  print(','.join(num[i:i+10]))
+
+# 字典  使用dict()函数来创建字典
+# d = dict([["s",2000]])
+# d2 = dict(yun=9000,liu=5000)
+# print(d,d2)
+
+# # 将所有的的值都设为一个同样的，比如三千
+# aDic = {}.fromkeys(('aaa','bbb','ccc'),3000)
+# print(aDic)
+
+# # 已有姓名和工资列表，两者对应形成字典
+# names = ['liuyun','wangdachui','tai']
+# salaries = [3000,2000,4500]
+# # 使用zip函数将列表打包，然后使用dict()
+# dic = dict(zip(names,salaries))
+# print(dic)
+
+# 将一个列表中的公司名和公司成交价形成字典
+# pList = [('AXP','American','18.42'),('BA','Chinese','45.89'),('BBC','England','6.78')]
+# aList = []
+# bList = []
+# for i in range(3):
+# # 将plist中每一项的第一个和第三个取出，放到对应的list中去
+# # 存疑，为什么直接使用aList[i] = pList[i][0]报错list assignment index out of range
+#   aStr = pList[i][0]
+#   bStr = pList[i][2]
+#   aList.append(aStr)
+#   bList.append(bStr)
+# # 使用
+# aDic = dict(zip(aList,bList))
+# print(aDic)
+
+# # 方法2  使用for循环直接生成字典
+# bDic = {}
+# for item in pList:
+#     bDic[item[0]] = item[2]
+# print(bDic)
+
+# 字典的基本方法
+# aInfo = {'Wangdachui':3000,'Niuyun':5000,'Tianqi':8000}
+# # 键值查找,两种方法，推荐使用第二种
+# 第一种，当查找的对象不存在时会报错
+# print(aInfo['Wangdachui'])
+# print(aInfo['Sun'])
+# 第二种 使用get方法查找
+# print(aInfo.get('Wangdachui'))
+# print(aInfo.get('Sun'))  #返回None
+# # 键值更新
+# aInfo['Niuyun'] = 9999
+# print(aInfo)
+# # 成员添加
+# aInfo['Fuyun'] = 1000
+# print(aInfo)
+# # 成员判断
+# print('Mayun' in aInfo)
+# print('Niuyun' in aInfo)
+# # 删除
+# del aInfo['Fuyun']
+# print(aInfo)
+# # 输出所有键
+# print(aInfo.keys())
+# # 输出所有值
+# print(aInfo.values())
+# # 遍历列表，使用items()函数
+# for k,v in aInfo.items():
+#     print(k,v)
+# # Wangdachui 3000
+# # Niuyun 9999
+# # Tianqi 8000
+# 删除字典
+# aInfo.clear()
+# 需要对a字典进行更改数值与添加时，可以使用update方法
+# aInfo = {'Wangdachui':3000,'Niuyun':5000,'Tianqi':8000}
+# bInfo = {'Wangdachui':4000,'Niuyun':6000,'Wangzi':7000}
+# aInfo.update(bInfo)
+# print(aInfo)  #{'Wangdachui': 4000, 'Niuyun': 6000, 'Tianqi': 8000, 'Wangzi': 7000}
+
+# 集合里遇到重复的，进行消除
+# names = ['a','b','c','a']
+# nameSet = set(names)
+# print(nameSet)
+# 利用set函数可以创建集合
+# aSet = set('hello')
+# print(aSet)
+# bSet = frozenset('hello')
+# print(bSet)
+
+# 集合关系运算
+# aSet = set('sunrise')
+# bSet = set('sunset')
+# # &运算，寻找两个集合都包含的
+# print(aSet&bSet)
+# # 或运算
+# print(aSet|bSet)
+
+# import requests
+# import re
+# import pandas as pd
+
+# def retrieve_dji_list():
+#     r = requests.get('https://money.cnn.com/data/markets/nasdaq/')
+    
+#     head = re.findall('<thead>(.*?)</thead>', r.text)
+#     assert len(head)==1
+#     table_head = ['Company'] + re.findall('<th>(.+?)<', head[0])
+  
+#     tbody_pat = re.compile('tbody>(.*?)</tbody')
+#     tbody = re.findall(tbody_pat, r.text)
+#     assert len(tbody) == 1
+    
+#     tr_pat = re.compile('<tr>(.*?)</tr>')
+#     tr_list = re.findall(tr_pat, tbody[0])
+    
+#     table_pat = re.compile('>([^<^&]+?)<')
+#     stock_list = [table_head]
+#     for i in tr_list:
+#         s = re.findall(table_pat, i)
+#         stock_list.append(s)
+#     return stock_list
+
+# dji_list = retrieve_dji_list()
+# djidf = pd.DataFrame(dji_list)
+# print(djidf)
+# 
+import matplotlib.pyplot as plt
+plt.plot([3,4,5,9,8,6,7])
+plt.show()
